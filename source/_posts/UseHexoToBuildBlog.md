@@ -19,20 +19,20 @@ tags: [Hexo, Blog, GitHub]
 注册完后，在Home页面有很多产品供我们选择，我之前选择的是最便宜的那款，2.99美刀一个月，如果觉得性能有瓶颈，可以考虑换个买4.99美刀一个月的，性能提升了一倍(毕竟2.99美刀的内存才256M)。
 每个直达方案通道里面，有具体方案的细节，筒子们可以自己研究下再做决定。
 
-![2017_07_20_1](/img/2017-07-20/2017_07_20_1.png)
+{% qnimg 2017-07-20/2017_07_20_1.png %}
 
 购买完成后，选择`VPS Hosting->Services->My Services`。
 然后可以看到已经购买的VPS。 服务器有了，下面当然就是给你的服务器安装操作系统。 点击KiwiVM Control Panel
 
-![2017_07_20_2](/img/2017-07-20/2017_07_20_2.png)
+{% qnimg 2017-07-20/2017_07_20_2.png %}
 
 选择`Install new OS`，我安装的是`centos-6-x86`，这个根据个人喜好选择。 装完好系统，我们可以看到自己VPS的服务器属性。
 
-![2017_07_20_3](/img/2017-07-20/2017_07_20_3.png)
+{% qnimg 2017-07-20/2017_07_20_3.png %}
 
 然后远程连接到服务器上。 网上有很多串口连接软件，我用的是[Putty][8]。 打开后，输入服务器的IP地址和端口号。
 
-![2017_07_20_4](/img/2017-07-20/2017_07_20_4.png)
+{% qnimg 2017-07-20/2017_07_20_4.png %}
 
 登录成功后，进入熟悉的命令行模式，至此VPS的购买就全部搞定啦！
 
@@ -48,7 +48,7 @@ tags: [Hexo, Blog, GitHub]
 Tk域名，网络上最容易申请到的免费域名之一，以TK结尾，与COM、NET、CN一样同属顶级域名。 因为是免费域名，很多人用来做垃圾网站，听说百度一般不会收录。 汗！
 经过网上的一番对比，最终还是选择了在Namecheap上注册域名。 购买好域名后，要配置下域名和我们的服务器IP地址的映射关系。 配置好后，可能需要等十来分钟后，才可以被DNS服务器正常解析。
 
-![2017_07_20_6](/img/2017-07-20/2017_07_20_6.png)
+{% qnimg 2017-07-20/2017_07_20_6.png %}
 
 关于NameCheap的映射关系配置，请参考链接: [namecheap域名解析教程2017][2]
 OK，恭喜你，前期工作准备完了！ 开罐可乐庆祝一下!  **:)**
@@ -94,7 +94,7 @@ git config --global user.name "username"
 一路回车生成公钥和密钥，一会要用到公钥`id_rsa.pub`
 `ssh-keygen -t rsa -C "email@example.com"`
 
-![2017_07_20_5](/img/2017-07-20/2017_07_20_5.png)
+{% qnimg 2017-07-20/2017_07_20_5.png %}
 
 ### 创建网站目录
 ---
@@ -114,14 +114,14 @@ hexo d -fg
 
 运行完上述命令后,可以在`C:\hexo`文件夹下看到有以下的文件目录生成。 你可以看见hexo文件夹下有一个`themes`文件夹，这是可以自定义的，从而改变网站的呈现形式，[Hexo][7]官网也提供了一些可供选择的主题。
 
-![2017_07_20_7](/img/2017-07-20/2017_07_20_7.png)
+{% qnimg 2017-07-20/2017_07_20_7.png %}
 
 接着启动本地hexo server
 `hexo serve(或者hexo s)`
 打开`http://localhost:4000` 即可看到你的站点（当然还没有发布到网络）。 如果没有响应的话，电脑重启一下，再敲入`hexo serve(或者hexo s)`
 启动本地hexo server的命令。
 
-![2017_07_20_8](/img/2017-07-20/2017_07_20_8.png)
+{% qnimg 2017-07-20/2017_07_20_8.png %}
 
 到这里，本地的网站部署和搭建就告一段落。 可以稍微休息下，准备部署VPS了。
 
@@ -183,7 +183,7 @@ git init --bare
 ```
 (上文中提到`hexo.git或者hexo`都可以替换成你的网站的名字)
 
-![2017_07_20_9](/img/2017-07-20/2017_07_20_9.png)
+{% qnimg 2017-07-20/2017_07_20_9.png %}
 
 测试一下，如果在**git bash**中输入`ssh git@VPS的IP地址`,能够远程登录的话，则表示设置成功了。
 
@@ -306,7 +306,7 @@ Port // SSH端口
 IdentityFile ~/.ssh/id_rsa
 ```
 
-![2017_07_20_10](/img/2017-07-20/2017_07_20_10.png)
+{% qnimg 2017-07-20/2017_07_20_10.png %}
 
 - `ssh -T git@github.com`是否连接上`github`
 `git config --list` 查看`git config`配置
@@ -322,7 +322,7 @@ enabled=1
 最后查看版本号，验证完成 `nginx -v`
 ```
 
-![2017_07_20_11](/img/2017-07-20/2017_07_20_11.png)
+{% qnimg 2017-07-20/2017_07_20_11.png %}
 
 - 用`yum install git`安装`Git`出现问题：`/bin/bash: git: command not found`
 解决（修改安装命令为）：`yum install git git-svn git-email git-gui gitk -y`
@@ -339,7 +339,7 @@ sshd 未启动：chkconfig sshd on
 - 使用`hero d`报错：`ERROR Deployer not found: git`
   解决：记得一定要在 blog 目录里 执行 `npm install hexo-deployer-git --save`
 
-![2017_07_20_12](/img/2017-07-20/2017_07_20_12.png)
+{% qnimg 2017-07-20/2017_07_20_12.png %}
 
 - 查看`node`和`npm`版本
 ```
@@ -377,7 +377,7 @@ deploy:
 ```
 
 3. 千万记得在本地博客路径`C:\hexo\`下一定要用`**Git Bash Here**`执行命令，而不是**Windows的命令行窗口**，否则会一直报“Permission denied, please try again."
-   ![2017_07_20_13](/img/2017-07-20/2017_07_20_13.png)
+   {% qnimg 2017-07-20/2017_07_20_13.png %}
    运行`ssh -T git@github.com`，是否能正常访问github
    运行`hexo g && hexo d`，部署并提交代码到github，同时触发git hooks完成发布 
    过程中会弹出一个OpenSSH的对话框要你输入git的密码，输入完毕，点击ok。搞定！
@@ -404,8 +404,9 @@ Markdown编辑器
 1. http://www.csdn.net/article/2014-05-05/2819623
 2. https://maxiang.io/
 
-## 打赏(如果觉得我的文章对您有用，请随意赞赏。您的支持将鼓励我继续创作！)
-![wechat-reward](/img/wechat-reward.jpg)
+## 如果觉得我的文章有用，请随意赞赏。您的支持将鼓励我继续创作！
+{% qnimg wechat-reward.jpg extend:?imageView2/2/w/500 %}
+
 
 [1]: http://banwagong.cn
 [2]: http://xianhuo.org/namecheap-yumingjiexijiaocheng2016.html
