@@ -4,4 +4,4 @@ Thumbs.db
 public/
 .deploy*/
 themes/next/
-.db.json
+db.json
