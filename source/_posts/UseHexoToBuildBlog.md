@@ -58,7 +58,7 @@ OK，恭喜你，前期工作准备完了！ 开罐可乐庆祝一下!  **:)**
 **(本机Windows部署)**
 ---
 
-当初也有很多博客框架的选择摆在我面前,但是我没有犹豫选择了[Hexo][3]。主要就是看中它的迅速快，号称使用`Node.js`让上百个页面在几秒内瞬间完成渲染；同时最关键的原因在于只需要一条命令就可以完成一键部署。 终极原因是因为懒 ～ 
+当初也有很多博客框架的选择摆在我面前,但是我没有犹豫选择了[Hexo][3]。主要就是看中它的迅速快，号称使用`Node.js`让上百个页面在几秒内瞬间完成渲染；同时最关键的原因在于只需要一条命令就可以完成一键部署。 终极原因是因为懒 ～
 Hexo的官网上东西已经比较全了，大家动手前，可以先浏览一下官网，讲的还是很详细的关于建站这块。
 闲话不多说，让我们撸起袖子，荡起双桨，二话不说开始干。
 
@@ -156,7 +156,7 @@ adduser git
 chmod 740 /etc/sudoers #改变权限值用于读写
 vim /etc/sudoers
 ```
-	
+
 在vi编辑中找到如下内容：
 ```
 ## Allow root to run any commands anywhere
@@ -177,7 +177,7 @@ cd ~
 mkdir .ssh && cd .ssh
 touch authorized_keys
 vi authorized_keys // 在这个文件中粘贴进刚刚Winodws下申请的key（在id_rsa.pub文件中）
-cd ~ 
+cd ~
 mkdir hexo.git && cd hexo.git
 git init --bare
 ```
@@ -264,7 +264,7 @@ server {
 
 位于`hexo`文件夹下，`_config.yml`,修改`deploy`选项，改成如下
 ```
-deploy: 
+deploy:
 - type: git
   repo: ssh://git@VPS的IP地址:/home/git/hexo.git#VPS上对应的git仓库(包含git hooks的地址)
   branch: master
@@ -272,7 +272,7 @@ deploy:
   repo: ssh://git@github.com/hexo.git#github上对应的保存静态文件的仓库
   branch: master
 ```
-	
+
 接着在hexo文件夹内，按住`shift右击`，选择在此处打开命令窗口（当然你也可以用cd命令），运行`hexo g && hexo d`，如果一切正常，静态文件已经被成功的push到了blog的仓库里，如果出现`appears not to be a git repo`的错误，删除hexo目录下的`.deploy`后再次`hexo g && hexo d`就可以了。
 到这里，博客已经完全建好了。
 
@@ -305,8 +305,7 @@ User git
 Port // SSH端口
 IdentityFile ~/.ssh/id_rsa
 ```
-
-{% qnimg 2017-07-20/2017_07_20_10.png %}
+	{% qnimg 2017-07-20/2017_07_20_10.png %}
 
 - `ssh -T git@github.com`是否连接上`github`
 `git config --list` 查看`git config`配置
@@ -318,11 +317,10 @@ name=nginx repo
 baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
 gpgcheck=0
 enabled=1
-	
+
 最后查看版本号，验证完成 `nginx -v`
 ```
-
-{% qnimg 2017-07-20/2017_07_20_11.png %}
+	{% qnimg 2017-07-20/2017_07_20_11.png %}
 
 - 用`yum install git`安装`Git`出现问题：`/bin/bash: git: command not found`
 解决（修改安装命令为）：`yum install git git-svn git-email git-gui gitk -y`
@@ -338,8 +336,7 @@ sshd 未启动：chkconfig sshd on
 
 - 使用`hero d`报错：`ERROR Deployer not found: git`
   解决：记得一定要在 blog 目录里 执行 `npm install hexo-deployer-git --save`
-
-{% qnimg 2017-07-20/2017_07_20_12.png %}
+  {% qnimg 2017-07-20/2017_07_20_12.png %}
 
 - 查看`node`和`npm`版本
 ```
@@ -355,19 +352,18 @@ npm --version
 git reset --hard FETCH_HEAD
 git pull origin master
 ```
-  
+
 - 添加多个key到git
   Step1 添加到github账号： 打开`C:\Users\<用户名>\.ssh`文件夹，拷贝`id_rsa.pub`里的内容，在Github账号`Settings->SSH and GPG keys->New SSH key`
   Step2 [添加到VPS][9]： 在`C:\Users\<用户名>\.ssh`文件夹下打开`Git Bash Here`, 执行`ssh-copy-id git@vps的IP`
-  
+
 - 运行`hexo g && hexo d`后没有触发**git hooks**解决方案
 说实话这个问题困扰了我三四天了，之前都是`hexo g && hexo d`之后，跑到VPS下的发布目录（`www/hexo/`）去手动download github上的`hexo.git`仓库完成发布的。
 确实不爽，于是翻了好几条网页，终于解决了。方法如下：
 1. 检查你的本地public key有没有add 到github账号，并且`/home/git/.ssh/authorized_keys`里面已经加入了之前Winodws下申请的key
 2. hexo文件夹下，`_config.yml`的配置语句正确如下
-
 ```
-deploy: 
+deploy:
 - type: git
   repo: ssh://git@VPS的IP地址:/home/git/hexo.git#VPS上对应的git仓库(包含git hooks的地址)
   branch: master
@@ -379,8 +375,56 @@ deploy:
 3. 千万记得在本地博客路径`C:\hexo\`下一定要用`**Git Bash Here**`执行命令，而不是**Windows的命令行窗口**，否则会一直报“Permission denied, please try again."
    {% qnimg 2017-07-20/2017_07_20_13.png %}
    运行`ssh -T git@github.com`，是否能正常访问github
-   运行`hexo g && hexo d`，部署并提交代码到github，同时触发git hooks完成发布 
+   运行`hexo g && hexo d`，部署并提交代码到github，同时触发git hooks完成发布
    过程中会弹出一个OpenSSH的对话框要你输入git的密码，输入完毕，点击ok。搞定！
+
+- 本地博客路径`C:\hexo\`下有个`.gitignore` 文件，主要用于`git status`忽略一些列出的文件，但是筒子们有木有发现改了该文件之后，其实并没有作用。
+百思不得其解之后，搜到[某攻略](10)才豁然开朗：只改文件你列出的文件或目录在仓库中，需要执行以下命令手动移除。提交一版之后，整个世界就清净了。 **:)**
+```
+git rm -rf --cached .
+git add .
+git commit -m "xxxxx"
+git push origin master
+```
+
+- 为 Next 主题文末添加版权等信息
+看到别人博客里的版权信息，觉得有点意思，找了很多教程，效果都不是自己想要的。只能借用下[Next作者的格式和样式](11)。
+**建立基础的HTML代码**
+定位到本地博客文件夹下的`themes\next\layout\_macro\post.swig`文件，这个和于`layout`下的`post.swig`的区别是前者扶着具体的`post-content`的生成，而后者是调用前者，
+然后补充类似comment第三方的模块的脚本。找到post-body所在的标签，并在其后加上如下代码：
+```
+<div>
+ {# 表示如果不在索引列表中加入后续的HTML代码 #}
+ {% if not is_index %}
+	<ul class="post-copyright">
+	  <li class="post-copyright-author">
+		  <strong>本文作者：</strong>{{ theme.author }}
+	  </li>
+	  <li class="post-copyright-link">
+		<strong>本文链接：</strong>
+		<a href="{{ url_for(page.path) }}" title="{{ page.title }}">{{ page.permalink }}</a>
+	  </li>
+	  <li class="post-copyright-license">
+		<strong>版权声明： </strong>
+		本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！
+	  </li>
+	</ul>
+ {% endif %}
+</div>
+```
+
+	**增添样式**
+	定位Next下的`source/css/_custom/custom.styl`,并在里面添加如下样式代码:
+	```
+	.post-copyright {
+		margin: 2em 0 0;
+		padding: 0.5em 1em;
+		border-left: 3px solid #ff1700;
+		background-color: #f9f9f9;
+		list-style: none;
+	}
+	```
+
 
 ## 五、后记
 ---
@@ -389,6 +433,8 @@ deploy:
 1. https://dynamicer.com/how-to-deploy-hexo-blogs-with-git-hooks-on-vps/
 2. http://tiktoking.github.io/2016/01/26/hexo/
 3. http://blog.csdn.net/hanhailong726188/article/details/46738929
+4. http://blog.ynxiu.com/2016/hexo-next-theme-optimize.html
+5. https://arcecho.github.io/2017/04/08/Hexo-Next%E4%B8%8B%E6%B7%BB%E5%8A%A0%E7%89%88%E6%9D%83%E5%A3%B0%E6%98%8E%E6%A8%A1%E5%9D%97/
 
 
 ## 六、编辑工具
@@ -404,9 +450,6 @@ Markdown编辑器
 1. http://www.csdn.net/article/2014-05-05/2819623
 2. https://maxiang.io/
 
-## 如果觉得我的文章有用，请随意赞赏。您的支持将鼓励我继续创作！
-{% qnimg wechat-reward.jpg extend:?imageView2/2/w/500 %}
-
 
 [1]: http://banwagong.cn
 [2]: http://xianhuo.org/namecheap-yumingjiexijiaocheng2016.html
@@ -417,3 +460,5 @@ Markdown编辑器
 [7]: https://hexo.io/themes/
 [8]: http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
 [9]: https://askubuntu.com/questions/46424/adding-ssh-keys-to-authorized-keys
+[10]: https://stackoverflow.com/questions/25436312/gitignore-not-working
+[11]: http://notes.iissnan.com/2015/something-about-next/
