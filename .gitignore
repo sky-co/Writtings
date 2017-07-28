@@ -3,4 +3,5 @@ Thumbs.db
 *.log
 public/
 .deploy*/
-themes/
+themes/next/
+.db.json

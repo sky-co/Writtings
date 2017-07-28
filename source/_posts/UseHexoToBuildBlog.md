@@ -390,8 +390,8 @@ git push origin master
 - 为 Next 主题文末添加版权等信息
 看到别人博客里的版权信息，觉得有点意思，找了很多教程，效果都不是自己想要的。只能借用下[Next作者的格式和样式](11)。
 **建立基础的HTML代码**
-定位到本地博客文件夹下的`themes\next\layout\_macro\post.swig`文件，这个和于`layout`下的`post.swig`的区别是前者扶着具体的`post-content`的生成，而后者是调用前者，
-然后补充类似comment第三方的模块的脚本。找到post-body所在的标签，并在其后加上如下代码：
+定位到本地博客文件夹下的`themes\next\layout\_macro\post.swig`文件，这个和于`layout`下的`post.swig`的区别是前者扶着具体的`post-content`的生成，而后者是调用前者。
+然后补充类似comment第三方的模块的脚本。找到post-body所在的标签，并在其后加上如下代码：然后补充类似comment第三方的模块的脚本。找到post-body所在的标签，并在其后加上如下代码：
 ```
 <div>
  {# 表示如果不在索引列表中加入后续的HTML代码 #}
