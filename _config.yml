@@ -112,6 +112,9 @@ qiniu:
     folder: js
   css:
     folder: css
+  audio:
+    folder: audio
+  
  
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
