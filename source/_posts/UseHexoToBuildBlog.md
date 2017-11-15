@@ -2,7 +2,7 @@
 title: Hexo环境搭建个人博客
 date: 2017-07-21 17:14:41
 categories: Others
-tags: 
+tags:
  - Hexo
  - Blog
  - GitHub]
@@ -354,6 +354,15 @@ npm --version
 ```
 git reset --hard FETCH_HEAD
 git pull origin master
+```
+
+- hexo安装成功，并且正确运行，但是localhost:4000不能访问
+  解决办法：https://yq.aliyun.com/articles/58027
+  遇到这个问题，是因为4000端口被占用了。如果你的电脑上不幸装了福昕阅读，恭喜你！它就是罪魁祸首....
+  胳膊拧不过大腿，对于这种流氓软件，我们别无他法，只能换端口。 :(
+```
+启动hexo s 的时候，用这个命令，换一个端口。
+hexo s -p 3600 // 随便指定一个端口号就好
 ```
 
 - 添加多个key到git
