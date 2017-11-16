@@ -99,7 +99,6 @@ startIdx和endIdx记录元素的最小和最大下标（length = endIdx - startI
 ```
 
 **代码分析：**
-
     1. 这中解法如果出现nums={1, 2, 3}时候，最后的循环遍历时间复杂度会变成0(n^2)
     2. std::map的本质是红黑树，查找的时间复杂度是O(nlogn).
     3. C++中的hashtable，可以考虑unordered_map（C++11/14）.
@@ -144,7 +143,7 @@ min找到最短的subarray的length
     数组startIndex用来记录每个元素在nums中的起始index
     数组count用来记录每个元素在nums中出现的degree
 遍历即可，更新最大的frequency在遍历时，如果多个元素有相同的frequency，比较他们的长度，选择subarray的length最短那个
-参考LeetCode Discuss：https://discuss.leetcode.com/topic/107162/straightforward-c-solution-35ms
+参考LeetCode Discuss：https://discuss.leetcode.com/topic/107216/concise-c-solution-using-hash-map-o-n-time
 
 **C++代码：**
 ``` c++
