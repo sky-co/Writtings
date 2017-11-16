@@ -44,7 +44,7 @@ startIdx和endIdx记录元素的最小和最大下标（length = endIdx - startI
 参考LeetCode Discuss：https://discuss.leetcode.com/topic/107102/my-accepted-c-solution-o-n/3
 
 **C++代码：**
-```
+``` c++
     int findShortestSubArray(vector<int>& nums)
     {
         map<int, int> mapCnt;
@@ -113,7 +113,7 @@ min找到最短的subarray的length
 参考LeetCode Discuss：https://discuss.leetcode.com/topic/107162/straightforward-c-solution-35ms
 
 **C++代码：**
-```
+``` c++
     int findShortestSubArray(vector<int>& nums)
     {
         unordered_map<int,vector<int>> mapCnt;
@@ -147,7 +147,7 @@ min找到最短的subarray的length
 参考LeetCode Discuss：https://discuss.leetcode.com/topic/107162/straightforward-c-solution-35ms
 
 **C++代码：**
-```
+``` c++
     int findShortestSubArray(vector<int>& nums)
     {
         unordered_map<int,vector<int>> mp;
