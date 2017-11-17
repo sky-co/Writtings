@@ -21,8 +21,8 @@ You are given a map in form of a two-dimensional integer grid where 1 represents
 [1,1,0,0]]
 
 Answer: 16
-Explanation: The perimeter is the 16 yellow stripes in the image below:
 ```
+Explanation: The perimeter is the 16 yellow stripes in the image below:
 {% qnimg 2017-11-17/2017_11_17_1.png %}
 
 ## 题目大意：
