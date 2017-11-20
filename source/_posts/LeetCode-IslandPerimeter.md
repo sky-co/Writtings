@@ -164,5 +164,66 @@ private:
     }
     ```
 
+### 解题思路3：
+---
+代码简洁的全遍历，复杂度O(n)。
+参考LeetCode Discuss：
+https://discuss.leetcode.com/topic/111260/c-short-and-fast-beats-93
+
+**C++代码：**
+``` c++
+class Solution {
+public:
+    int islandPerimeter(vector<vector<int>>& grid) {
+        int p = 0;
+        for (int i = 0; i < grid.size(); ++i)
+            for (int j = 0; j < grid[i].size(); ++j)
+                if (grid[i][j] == 1)
+                    p += (i == 0 || grid[i - 1][j] == 0) + (i == grid.size() - 1 || grid[i + 1][j] == 0) +
+                         (j == 0 || grid[i][j - 1] == 0) + (j == grid[i].size() - 1 || grid[i][j + 1] == 0);
+        return p;
+    }
+};
+```
+
+**代码分析：**
+    1. 代的方式进行全遍历，代码比较简洁。不过就是循环内嵌套过多的逻辑判断，效率比较低。
+    2. 关注点在确定当前grid[i][j]为1后，观察四个方向的元素是否为0，如果是则+1.如果是i = 0或者j=0的边界则直接+1；
+
+### 解题思路4：
+---
+    1. 确定“1”的个数，如果没有相邻包围的元素的话，perimeter为“1”的个数×4
+    2. 确定相邻的元素边界墙的个数，需要减去从上述结果中减去2×边界墙个数
+参考LeetCode Discuss：
+https://discuss.leetcode.com/topic/68845/c-solution-with-explanation
+
+**C++代码：**
+``` c++
+class Solution {
+public:
+    int islandPerimeter(vector<vector<int>>& grid) {
+        int count=0, repeat=0;
+        for(int i=0;i<grid.size();i++)
+        {
+            for(int j=0; j<grid[i].size();j++)
+                {
+                    if(grid[i][j]==1)
+                    {
+                        count ++;
+                        if(i!=0 && grid[i-1][j] == 1) repeat++;
+                        if(j!=0 && grid[i][j-1] == 1) repeat++;
+                    }
+                }
+        }
+        return 4*count-repeat*2;
+    }
+};
+```
+
+**代码分析：**
+总周长perimeter的解法一般两种：
+    1. “1”元素总长-相邻边×2
+    2. perimeter=边界元素个数+与“0”相邻元素个数
+
 
 [1]: https://leetcode.com/problems/island-perimeter/description/
