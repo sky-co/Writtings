@@ -82,7 +82,7 @@ public:
 ```
 
 **代码分析：**
-此题是LeetCode 169. Majority Element的加强版，同时要找出大于n/3的众数，难点在于
+此题是[LeetCode 169. Majority Element][3]的加强版，同时要找出大于n/3的众数，难点在于
     1. 时间复杂度O(n)，空间复杂度O(1) -- 注定只能遍历元素，并且用单个变量来完成计数
     2. 众数的条件是n/3
 
@@ -101,3 +101,4 @@ public:
 
 [1]: https://leetcode.com/problems/majority-element-ii
 [2]: http://blog.csdn.net/chfe007/article/details/42919017
+[3]: http://skyhacks.org/2017/11/24/LeetCode-MajorityElement
