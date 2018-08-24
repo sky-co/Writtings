@@ -1,5 +1,5 @@
 ---
-title: Arts-Share_Week1-不做伪工作者
+title: Share_Week1-不做伪工作者
 date: 2018-08-21 00:22:02
 categories: Arts
 tags:
