@@ -373,14 +373,14 @@ hexo s -p 3600 // 随便指定一个端口号就好
 说实话这个问题困扰了我三四天了，之前都是`hexo g && hexo d`之后，跑到VPS下的发布目录（`www/hexo/`）去手动download github上的`hexo.git`仓库完成发布的。
 确实不爽，于是翻了好几条网页，终于解决了。方法如下：
 1. 检查你的本地public key有没有add 到github账号，并且`/home/git/.ssh/authorized_keys`里面已经加入了之前Winodws下申请的key
-2. hexo文件夹下，`_config.yml`的配置语句正确如下
+2. hexo文件夹下，`_config.yml`的[配置语句正确如下][12]
 ```
 deploy:
 - type: git
-  repo: ssh://git@VPS的IP地址:/home/git/hexo.git#VPS上对应的git仓库(包含git hooks的地址)
+  repo: git@VPS的IP地址:/home/git/hexo.git#VPS上对应的git仓库(包含git hooks的地址)
   branch: master
 - type: git
-  repo: ssh://git@github.com/hexo.git#github上对应的保存静态文件的仓库
+  repo: git@github.com:{yourname}/hexo.git#github上对应的保存静态文件的仓库
   branch: master
 ```
 
@@ -474,4 +474,5 @@ Markdown编辑器
 [9]: https://askubuntu.com/questions/46424/adding-ssh-keys-to-authorized-keys
 [10]: https://stackoverflow.com/questions/25436312/gitignore-not-working
 [11]: http://notes.iissnan.com/2015/something-about-next/
+[12]: https://www.zhihu.com/question/38219432
 
