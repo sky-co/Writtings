@@ -1,5 +1,5 @@
 ---
-title: Arts-Tip_Week2 - 使用Hexo和GitHub搭建博客，出现hexo -d报错解决方案
+title: Tip_Week2 - 使用Hexo和GitHub搭建博客，出现hexo -d报错解决方案
 date: 2018-08-29 23:48:27
 categories: Arts
 tags:
