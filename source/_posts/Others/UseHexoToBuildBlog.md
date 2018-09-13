@@ -348,7 +348,9 @@ npm --version
 ```
 
 - warning: LF will be replaced by CRLF | fatal: CRLF would be replaced by LF
-  解决办法：http://blog.csdn.net/feng88724/article/details/11600375
+  解决办法：
+          http://blog.csdn.net/feng88724/article/details/11600375
+          http://skyhacks.org/2018/08/20/Arts/Week1/Arts-Tip_Week1-GitLineEndingCharacter/
   遇到这两个错误，是因为Git的换行符检查功能
   对于出现一些conflic，可以reset一些，再重新更新
 ```
