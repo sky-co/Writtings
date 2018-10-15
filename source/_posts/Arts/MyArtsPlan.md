@@ -16,6 +16,7 @@ tags:
 + week2: [867. Transpose Matrix](http://skyhacks.org/2018/08/30/LeetCode/LeetCode-TransposeMatrix/)
 + week3: [766. Toeplitz Matrix](http://skyhacks.org/2018/09/05/LeetCode/LeetCode-ToeplitzMatrix/)
 + week4: [905. Sort Array By Parity](http://skyhacks.org/2018/09/24/LeetCode/LeetCode-SortArrayByParity/)
++ week5: [896. Monotonic Array](http://skyhacks.org/2018/10/10/LeetCode/LeetCode-MonotonicArray/)
 
 ---
 ## Review
@@ -43,5 +44,6 @@ tags:
 + week2: [如何正确高效地问对问题](http://skyhacks.org/2018/08/30/Arts/Week2/Arts-Share-Week2-HowToAskQuestions/)
 + week3: [如何高效的学习](http://skyhacks.org/2018/09/06/Arts/Week3/Arts-Share-Week3-HowToStudy/)
 + week4: [学习的感悟](http://skyhacks.org/2018/09/20/Arts/Week4/Arts-Share-Week4-GoForward/)
++ week5: [制定项目规划](http://skyhacks.org/2018/10/10/Arts/Week5/Arts-Share-Week5-MakeAPlan/)
 
 
