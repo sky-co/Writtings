@@ -26,6 +26,7 @@ tags:
 + week2: [在Facebook服务器上执行远程代码执行](http://skyhacks.org/2018/08/25/Arts/Week2/Arts-Review_Week2-MyArtsPlan/)
 + week3: [如何像程序员一样思考](http://skyhacks.org/2018/09/07/Arts/Week3/Arts-Review_Week3-HowToThinkLikeProgrammer/)
 + week4: [科学研究表明为什么晚起的人比早起的人更聪明和富于创造力](http://skyhacks.org/2018/09/20/Arts/Week4/Arts-Review_Week4-EveningPeopleAreSmarter/)
++ week5: [两种不同的知识类型](http://skyhacks.org/2018/11/04/Arts/Week5/Arts-Review_Week5-HowToBeSmarter/)
 
 ---
 ## Tip
